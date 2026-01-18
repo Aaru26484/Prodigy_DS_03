@@ -1,71 +1,115 @@
-\documentclass[12pt]{article}
-\usepackage[a4paper, margin=1in]{geometry}
-\usepackage{graphicx}
-\usepackage{xcolor}
-\usepackage{hyperref}
-\usepackage{listings}
-\usepackage{titlesec}
+📊 Prodigy Infotech – Data Science Internship
+Task 03: Decision Tree Classification
+👤 Intern
 
-\title{\textbf{Prodigy Infotech – Data Science Internship}\\
-\large Task 02: Data Cleaning \& Exploratory Data Analysis (EDA)}
-\author{\textbf{Intern: Aarti Singh}}
-\date{\today}
+Aarti Singh
 
-\begin{document}
+📌 Task Description
 
-\maketitle
+The objective of this task is to build a Decision Tree Classifier to predict whether a customer will subscribe to a bank term deposit. The task includes data preprocessing, EDA, feature encoding, model training, evaluation, and visualization.
 
-\section*{Task Description}
-The objective of this task is to perform \textbf{data cleaning} and \textbf{exploratory data analysis (EDA)}
-on a dataset in order to understand its structure, explore relationships between variables,
-and extract meaningful insights before applying machine learning techniques.
+🎯 Objectives
 
-\section*{Objectives}
-\begin{itemize}
-    \item Clean and preprocess the dataset
-    \item Handle missing and inconsistent values
-    \item Analyze numerical features
-    \item Identify correlations between variables
-    \item Visualize data using plots and heatmaps
-\end{itemize}
+Load and inspect the dataset
 
-\section*{Dataset}
-\begin{itemize}
-    \item \textbf{Dataset Used:} Titanic Dataset
-    \item The dataset contains passenger information such as age, fare, class, and survival status.
-\end{itemize}
+Perform EDA
 
-\section*{Tools \& Technologies}
-\begin{itemize}
-    \item Python
-    \item Pandas
-    \item NumPy
-    \item Matplotlib
-    \item Seaborn
-    \item Google Colab / Jupyter Notebook
-\end{itemize}
+Encode categorical variables
 
-\section*{Exploratory Data Analysis}
-The following steps were performed:
-\begin{enumerate}
-    \item Data loading and inspection
-    \item Handling missing values
-    \item Selection of numerical features
-    \item Correlation analysis
-    \item Visualization using a correlation heatmap
-\end{enumerate}
+Train a Decision Tree model
 
-\section*{Correlation Heatmap}
-The correlation heatmap below visualizes relationships between numerical features in the dataset:
+Evaluate model performance
 
-\begin{lstlisting}[language=Python]
-plt.figure(figsize=(8,6))
+Visualize the Decision Tree
 
-numeric_df = df.select_dtypes(include=['int64', 'float64'])
-sns.heatmap(numeric_df.corr(), annot=True, cmap='coolwarm')
+📂 Dataset
 
-plt.title("Correlation Heatmap (Numeric Features)")
+Dataset Used: Bank Marketing Dataset (bank-additional.csv)
+
+Contains customer details such as age, job, education, marital status, etc.
+
+Target Variable: deposit
+
+🛠️ Tools & Technologies
+
+Python
+
+Pandas
+
+NumPy
+
+Matplotlib
+
+Seaborn
+
+Scikit-learn
+
+Google Colab / Jupyter Notebook
+
+🔍 Exploratory Data Analysis
+
+Steps performed:
+
+Data loading and inspection
+
+Missing & duplicate value check
+
+Numerical & categorical feature analysis
+
+Data visualization
+
+Correlation analysis
+
+📈 Correlation Heatmap
+df_dummies = pd.get_dummies(df)
+corr = df_dummies.corr()
+
+plt.figure(figsize=(12,8))
+sns.heatmap(corr, cmap='coolwarm')
 plt.show()
-\end{lstlisting}
 
-\end{document}
+⚙️ Data Preprocessing
+
+Removed highly correlated columns
+
+Label Encoding applied
+
+Train-test split (70%–30%)
+
+🌳 Model Training
+dt = DecisionTreeClassifier(
+    criterion='entropy',
+    max_depth=6,
+    min_samples_split=20,
+    min_samples_leaf=10,
+    class_weight='balanced'
+)
+
+📊 Model Evaluation
+print("Accuracy:", accuracy_score(y_test, y_pred))
+print(confusion_matrix(y_test, y_pred))
+print(classification_report(y_test, y_pred))
+
+🌿 Decision Tree Visualization
+plt.figure(figsize=(30,20))
+plot_tree(
+    dt,
+    feature_names=X.columns,
+    class_names=['No','Yes'],
+    filled=True,
+    fontsize=10
+)
+plt.show()
+
+✅ Conclusion
+
+This task demonstrates the effectiveness of Decision Tree classifiers in solving classification problems through proper preprocessing, EDA, and model tuning.
+
+If you want, I can now:
+
+✅ Put this into a README.md file
+✅ Make it 1-page
+✅ Convert to PDF
+✅ Add screenshots
+
+Just say the word 😎
