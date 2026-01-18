@@ -1,47 +1,71 @@
 \documentclass[12pt]{article}
 \usepackage[a4paper, margin=1in]{geometry}
-\usepackage{hyperref}
+\usepackage{graphicx}
 \usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{titlesec}
 
-\title{\textbf{Bank Marketing Prediction using Decision Tree}}
-\author{Task 3}
+\title{\textbf{Prodigy Infotech – Data Science Internship}\\
+\large Task 02: Data Cleaning \& Exploratory Data Analysis (EDA)}
+\author{\textbf{Intern: Aarti Singh}}
 \date{\today}
 
 \begin{document}
 
 \maketitle
 
-\section*{Abstract}
-This project predicts whether a customer will subscribe to a bank term deposit using a Decision Tree Classifier. The dataset used is \texttt{bank-additional.csv}, and various data preprocessing, visualization, and machine learning techniques were applied.
+\section*{Task Description}
+The objective of this task is to perform \textbf{data cleaning} and \textbf{exploratory data analysis (EDA)}
+on a dataset in order to understand its structure, explore relationships between variables,
+and extract meaningful insights before applying machine learning techniques.
 
 \section*{Objectives}
 \begin{itemize}
-    \item Perform Exploratory Data Analysis (EDA)
-    \item Preprocess the dataset
-    \item Train a Decision Tree model
-    \item Evaluate model performance
-    \item Visualize the decision tree
+    \item Clean and preprocess the dataset
+    \item Handle missing and inconsistent values
+    \item Analyze numerical features
+    \item Identify correlations between variables
+    \item Visualize data using plots and heatmaps
 \end{itemize}
 
-\section*{Tools and Technologies}
-Python, Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn
-
-\section*{Methodology}
-The dataset was analyzed using descriptive statistics and visualizations. Categorical variables were encoded using Label Encoding. Highly correlated columns (\texttt{cons.price.idx}, \texttt{cons.conf.idx}) were removed. The dataset was split into 70\% training and 30\% testing data.
-
-A Decision Tree Classifier was trained using entropy as the splitting criterion, with a maximum depth of 6, and class balancing applied.
-
-\section*{Evaluation Metrics}
+\section*{Dataset}
 \begin{itemize}
-    \item Accuracy Score
-    \item Confusion Matrix
-    \item Precision, Recall, and F1-score
+    \item \textbf{Dataset Used:} Titanic Dataset
+    \item The dataset contains passenger information such as age, fare, class, and survival status.
 \end{itemize}
 
-\section*{Results}
-The model achieved good classification performance on unseen data. Training and testing accuracies were compared to avoid overfitting.
+\section*{Tools \& Technologies}
+\begin{itemize}
+    \item Python
+    \item Pandas
+    \item NumPy
+    \item Matplotlib
+    \item Seaborn
+    \item Google Colab / Jupyter Notebook
+\end{itemize}
 
-\section*{Conclusion}
-This project demonstrates that Decision Tree models are effective for classification problems when combined with proper preprocessing and EDA.
+\section*{Exploratory Data Analysis}
+The following steps were performed:
+\begin{enumerate}
+    \item Data loading and inspection
+    \item Handling missing values
+    \item Selection of numerical features
+    \item Correlation analysis
+    \item Visualization using a correlation heatmap
+\end{enumerate}
+
+\section*{Correlation Heatmap}
+The correlation heatmap below visualizes relationships between numerical features in the dataset:
+
+\begin{lstlisting}[language=Python]
+plt.figure(figsize=(8,6))
+
+numeric_df = df.select_dtypes(include=['int64', 'float64'])
+sns.heatmap(numeric_df.corr(), annot=True, cmap='coolwarm')
+
+plt.title("Correlation Heatmap (Numeric Features)")
+plt.show()
+\end{lstlisting}
 
 \end{document}
